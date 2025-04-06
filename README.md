@@ -1,5 +1,7 @@
 # Mermaid AI Editor
 
+[![Vercel](https://vercel.com/button)](https://mermaid-ai-editor.vercel.app)
+
 A modern, AI-powered editor for creating and editing Mermaid diagrams with Next.js and Gemini AI.
 
 ## Features
@@ -49,6 +51,8 @@ pnpm dev
 ## Deployment
 
 The project is configured for easy deployment to Vercel or Netlify.
+
+Live demo: [mermaid-ai-editor.vercel.app](https://mermaid-ai-editor.vercel.app)
 
 ## Contributing
 
