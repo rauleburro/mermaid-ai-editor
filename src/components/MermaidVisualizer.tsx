@@ -5,9 +5,9 @@ import mermaid from "mermaid";
 import { useContext } from "react";
 import { CodeContext } from "@/context/CodeContext";
 
-type MermaidVisualizerProps = {};
 
-export function MermaidVisualizer({}: MermaidVisualizerProps) {
+
+export function MermaidVisualizer() {
   const { code } = useContext(CodeContext);
   const containerRef = useRef<HTMLDivElement>(null);
 
