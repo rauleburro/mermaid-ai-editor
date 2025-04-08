@@ -27,7 +27,7 @@ const Home = () => {
         <ResizableHandle withHandle />
 
         <ResizablePanel defaultSize={70}>
-          <div className="flex items-center justify-center h-full">
+          <div className="flex items-stretch justify-stretch h-full">
             <MermaidVisualizer />
           </div>
         </ResizablePanel>
