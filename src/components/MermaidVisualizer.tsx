@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 import panzoom from "panzoom";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
-import { Square, ZoomIn, ZoomOut } from "lucide-react";
+import { Download, Square, ZoomIn, ZoomOut } from "lucide-react";
 
 export function MermaidVisualizer() {
   const { code } = useContext(CodeContext);
@@ -117,6 +117,20 @@ export function MermaidVisualizer() {
     }
   };
 
+  const handleDownload = () => {
+    const svgElement = containerRef.current?.querySelector("svg");
+    if (svgElement) {
+      const svgData = new XMLSerializer().serializeToString(svgElement);
+      const blob = new Blob([svgData], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "diagram.svg";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+  };
+
   return (
     <div className="flex flex-col h-full w-full relative">
       <Card className="absolute top-2 right-2 flex flex-row gap-2">
@@ -128,6 +142,9 @@ export function MermaidVisualizer() {
         </Button>
         <Button variant="ghost" onClick={handleReset}>
           <Square className="w-4 h-4" />
+        </Button>
+        <Button variant="ghost" onClick={handleDownload}>
+          <Download className="w-4 h-4" />
         </Button>
       </Card>
       {code ? (
