@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { GithubIcon, Share2Icon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ShareModal } from "./ShareModal";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar({ className }: { className?: string }) {
   const [shareUrl, setShareUrl] = React.useState("");
@@ -28,6 +29,7 @@ export function Navbar({ className }: { className?: string }) {
       </div>
 
       <div className="flex items-center space-x-2">
+        <ThemeToggle />
         <Button variant="ghost" size="sm" asChild>
           <a
             href="https://github.com:rauleburro/mermaid-ai-editor.git"

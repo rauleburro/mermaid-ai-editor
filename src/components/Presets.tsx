@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { CodeContext } from "@/context/CodeContext";
-import React from "react";
+import React, { useEffect } from "react";
 
 const samples = {
   Block: `block-beta
@@ -213,6 +213,12 @@ const diagramOrder: SampleTypes[] = [
 
 export const Presets = () => {
   const { setCode } = React.useContext(CodeContext);
+
+  useEffect(() => {
+    const defaultSampleCode = samples["Flow"];
+    setCode(defaultSampleCode);
+  }, []);
+
   return (
     <div className="flex flex-wrap gap-2">
       {diagramOrder.map((type) => (
